@@ -11,7 +11,7 @@ const Navbar = () => {
     { name: "about", label: "About", icon: "👨‍💻" },
     { name: "skills", label: "Skills", icon: "⚡" },
     { name: "projects", label: "Projects", icon: "🚀" },
-    { name: "contact", label: "Contact", icon: "📞" }
+    { name: "contact", label: "Contact", icon: "📞" },
   ];
 
   useEffect(() => {
@@ -20,17 +20,12 @@ const Navbar = () => {
       setScrolled(isScrolled);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <motion.nav
@@ -38,48 +33,49 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-black/95 backdrop-blur-md shadow-lg border-b border-gray-800/50' 
-          : 'bg-black/80 backdrop-blur-sm'
+        scrolled
+          ? "bg-black/95 backdrop-blur-md shadow-lg border-b border-gray-800/50"
+          : "bg-black/80 backdrop-blur-sm"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center py-4">
-          {/* Brand/Name - Left Side */}
+          {/* Brand Section with Logo */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
-            className="flex items-center"
+            className="flex items-center space-x-3"
           >
             <Link
               to="home"
               smooth={true}
               duration={500}
               offset={-70}
-              className="cursor-pointer group"
+              className="cursor-pointer group flex items-center space-x-2"
             >
-              <motion.h1
-                className="text-xl md:text-2xl font-bold bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 bg-clip-text text-transparent hover:from-teal-300 hover:via-blue-400 hover:to-purple-500 transition-all duration-300"
-                whileHover={{ 
-                  scale: 1.05,
-                  textShadow: "0 0 8px rgba(59, 130, 246, 0.5)"
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Anand Bhasker
-              </motion.h1>
-              
-              {/* Underline effect */}
-              <motion.div
-                className="h-0.5 w-0 bg-gradient-to-r from-teal-500 to-blue-500 group-hover:w-full transition-all duration-300"
-                initial={{ width: 0 }}
-                whileHover={{ width: "100%" }}
-              />
+              {/* Logo */}
+           <motion.img
+  src="/logo/Anand-logo.png"
+  alt="Anand Logo"
+  className="w-12 h-12 object-contain rounded-md"
+/>
+
+              {/* Name */}
+              <div className="flex flex-col">
+               
+
+                {/* Underline effect */}
+                <motion.div
+                  className="h-0.5 w-0 bg-gradient-to-r from-teal-500 to-blue-500 group-hover:w-full transition-all duration-300"
+                  initial={{ width: 0 }}
+                  whileHover={{ width: "100%" }}
+                />
+              </div>
             </Link>
           </motion.div>
 
-          {/* Desktop Navigation - Right Side */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link, index) => (
               <motion.div
@@ -107,23 +103,16 @@ const Navbar = () => {
                     </span>
                     <span className="font-medium">{link.label}</span>
                   </motion.div>
-                  
-                  {/* Hover effect */}
+
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-blue-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     whileHover={{ scale: 1.05 }}
                   />
-                  
-                  {/* Active indicator */}
-                  <motion.div
-                    className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-teal-500 to-blue-500 group-hover:w-full group-hover:left-0 transition-all duration-300"
-                  />
+                  <motion.div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-teal-500 to-blue-500 group-hover:w-full group-hover:left-0 transition-all duration-300" />
                 </Link>
               </motion.div>
             ))}
           </div>
-
-          {/*  */}
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -147,7 +136,7 @@ const Navbar = () => {
           </motion.button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -204,8 +193,8 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </div>
-      
-      {/* Background overlay for mobile menu */}
+
+      {/* Background Overlay for Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
