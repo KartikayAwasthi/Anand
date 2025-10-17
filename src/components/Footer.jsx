@@ -42,7 +42,7 @@ const Footer = () => {
     },
     {
       name: "Email",
-      href: "mailto:anand.bhasker@example.com",
+      href: "mailto:anand.bhasker.dev@outlook.com",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -168,7 +168,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
             <p className="text-gray-400 text-sm">
-              © {currentYear} Anand Bhasker. All Rights Reserved. Built with ❤️ using React & Tailwind CSS.
+              © {currentYear} Anand Bhasker. All Rights Reserved.
             </p>
 
             {/* Social Links */}
@@ -198,9 +198,19 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-center mt-6"
           >
-            <p className="text-gray-500 text-xs">
-              Crafted with modern technologies • React • Tailwind CSS • Framer Motion
-            </p>
+     <p className="text-sm text-gray-400 text-center mt-10 tracking-wide">
+  Designed & Developed with{" "}
+  <span className="text-red-500">❤️</span> by{" "}
+  <span
+    onClick={() => window.open("https://www.linkedin.com/in/KartikayAwasthi/", "_blank")}
+    className="font-bold text-white hover:text-blue-400 transition-colors duration-300 cursor-pointer"
+  >
+    Kartikay Awasthi
+  </span>
+</p>
+
+
+
           </motion.div>
         </motion.div>
       </div>

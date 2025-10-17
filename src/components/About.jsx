@@ -23,7 +23,7 @@ const About = () => {
   };
 
   const achievements = [
-    { number: "4+", label: "Years Professional Experience" },
+    { number: "3+", label: "Years Professional Experience" },
     { number: "15+", label: "Enterprise Projects" },
     { number: "5", label: "Team Members Mentored" },
     { number: "3", label: "Production Apps Delivered" }
